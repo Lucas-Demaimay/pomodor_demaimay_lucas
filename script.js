@@ -1,5 +1,16 @@
 
-let affichage = document.getElementById("affichageTemps");
+function stringTemps( minute, seconde) {
+    if(seconde < 10){
+        return minute + " : 0" + seconde;
+    } else {
+        return minute + " : " + seconde;
+    }
+}
+
+let affichageTemps = document.getElementById("affichageTemps");
+let affichageTravailPause = document.getElementById("affichageTravailPause");
+let affichageTempsTravail = document.getElementById("affichageTempsTravail");
+let affichageTempsPause = document.getElementById("affichageTempsPause");
 
 let controle = document.getElementById("boutonControle");
 
@@ -10,7 +21,7 @@ const minuteur = {
     estTempsPause: false,
     estActif: false,
 
-    anvancer: function() {
+    avancer: function() {
         if(!this.estActif) return;
         this.seconde -= 1;
         if(this.seconde == -1){
@@ -40,11 +51,15 @@ const minuteur = {
     },
 
     reafficher: function() {
-        if(this.seconde < 10){
-            affichage.textContent = this.minute + " : 0" + this.seconde;
+        
+        if(this.estActif) {
+            affichageTemps.textContent = stringTemps(this.minute, this.seconde);
         } else {
-            affichage.textContent = this.minute + " : " + this.seconde;
+            affichageTemps.textContent = stringTemps(minuteur.tabTravailRepos[0], minuteur.tabTravailRepos[1]);
         }
+        
+        affichageTempsTravail.textContent = "Temps de travail : " + stringTemps(minuteur.tabTravailRepos[0], minuteur.tabTravailRepos[1]);
+        affichageTempsPause.textContent = "Temps de pause : " + stringTemps(minuteur.tabTravailRepos[2], minuteur.tabTravailRepos[3]);
 
         if(this.estTempsPause){
             document.body.style.backgroundColor = "GREEN";
@@ -55,12 +70,25 @@ const minuteur = {
         if(!this.estActif){
             document.body.style.backgroundColor = "WHITE";
         }
+    },
+
+    changerTemps: function(minute, seconde, estPause) {
+        if(estPause) {
+            this.tabTravailRepos[2] = minute;
+            this.tabTravailRepos[3] = seconde;
+        } else {
+            this.tabTravailRepos[0] = minute;
+            this.tabTravailRepos[1] = seconde;
+        }
+
+        this.reafficher();
     }
 }
 
-affichage.textContent = minuteur.minute + " : 0" + minuteur.seconde;
 
-setInterval(() => minuteur.anvancer(), 1000);
+minuteur.reafficher();
+
+setInterval(() => minuteur.avancer(), 1000);
 
 function lancer(){
     minuteur.estActif = true;
@@ -71,10 +99,57 @@ function lancer(){
 
 function reset(){
     minuteur.estActif = false;
-
     minuteur.restaurer();
-
     controle.textContent = "Lancer";
     controle.onclick = lancer;
 }
+
+function changerTravail(){
+    let newMinute = document.getElementById("choixMinute").value;
+    let newSeconde = document.getElementById("choixSeconde").value;
+
+    minuteur.changerTemps(newMinute, newSeconde, false);
+}
+
+function changerPause(){
+    let newMinute = document.getElementById("choixMinute").value;
+    let newSeconde = document.getElementById("choixSeconde").value;
+
+    minuteur.changerTemps(newMinute, newSeconde, true);
+}
+
+function augmenterMinute(){
+    let newMinute = document.getElementById("choixMinute").value;
+    if(newMinute == 120){
+        return;
+    }
+    document.getElementById("choixMinute").value = parseInt(newMinute) + 1;
+}
+
+function diminuerMinute(){
+    let newMinute = document.getElementById("choixMinute").value;
+    if(newMinute == 1){
+        return;
+    }
+    document.getElementById("choixMinute").value = parseInt(newMinute) - 1;
+}
+
+function augmenterSeconde(){
+    let newSeconde = document.getElementById("choixSeconde").value;
+    if(newSeconde == 59){
+        document.getElementById("choixSeconde").value = 0;
+        return;
+    }
+    document.getElementById("choixSeconde").value = parseInt(newSeconde) + 1;
+}
+
+function diminuerSeconde(){
+    let newSeconde = document.getElementById("choixSeconde").value;
+    if(newSeconde == 0){
+        document.getElementById("choixSeconde").value = 59;
+        return;
+    }
+    document.getElementById("choixSeconde").value = parseInt(newSeconde) - 1;
+}
+
 

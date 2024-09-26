@@ -7,8 +7,34 @@
     <title>Timer Pomodoro</title>
 </head>
 <body>
-    <p id="affichageTemps"></p>
-    <button id="boutonControle" onclick="lancer()">Lancer</button>
+
+    <header>
+        <h1>Timer Pomodoro</h1>   
+    </header>
+
+    <div>
+        <p id="affichageTemps"></p>
+        <button id="boutonControle" onclick="lancer()">Lancer</button>
+        <p id="affichageTravailPause"></p>
+    </div>
+    
+    <div>
+
+        <p id="affichageTempsTravail"></p>
+        <p id="affichageTempsPause"></p>
+
+        <button onclick="augmenterMinute()">+</button>
+        <input type="number" id="choixMinute" placeholder="Minute" value="25" disabled/>
+        <button onclick="diminuerMinute()">-</button>
+        
+        <button onclick="augmenterSeconde()">+</button>
+        <input type="number" id="choixSeconde" placeholder="Seconde" value="0" disabled/>
+        <button onclick="diminuerSeconde()">-</button> 
+
+        <button onclick="changerTravail()" >Changer le temps de travail</button>
+        <button onclick="changerPause()">Changer le temps de pause</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
