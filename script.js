@@ -8,7 +8,6 @@ function stringTemps( minute, seconde) {
 }
 
 let affichageTemps = document.getElementById("affichageTemps");
-let affichageTravailPause = document.getElementById("affichageTravailPause");
 let affichageTempsTravail = document.getElementById("affichageTempsTravail");
 let affichageTempsPause = document.getElementById("affichageTempsPause");
 
@@ -61,15 +60,6 @@ const minuteur = {
         affichageTempsTravail.textContent = "Temps de travail : " + stringTemps(minuteur.tabTravailRepos[0], minuteur.tabTravailRepos[1]);
         affichageTempsPause.textContent = "Temps de pause : " + stringTemps(minuteur.tabTravailRepos[2], minuteur.tabTravailRepos[3]);
 
-        if(this.estTempsPause){
-            document.body.style.backgroundColor = "GREEN";
-        } else {
-            document.body.style.backgroundColor = "RED";
-        }
-
-        if(!this.estActif){
-            document.body.style.backgroundColor = "WHITE";
-        }
     },
 
     changerTemps: function(minute, seconde, estPause) {
@@ -92,7 +82,6 @@ setInterval(() => minuteur.avancer(), 1000);
 
 function lancer(){
     minuteur.estActif = true;
-    document.body.style.backgroundColor = "RED";
     controle.textContent = "Reset";
     controle.onclick = reset;
 }

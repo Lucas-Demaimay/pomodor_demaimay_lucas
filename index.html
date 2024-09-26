@@ -1,39 +1,50 @@
+<!-- metadescription, changer les onclick par des addListener en JS, -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="style.css" >
+    
     <title>Timer Pomodoro</title>
 </head>
-<body>
-
-    <header>
-        <h1>Timer Pomodoro</h1>   
-    </header>
-
-    <div>
-        <p id="affichageTravailPause"></p>
-        <p id="affichageTemps"></p>
-        <button id="boutonControle" onclick="lancer()">Lancer</button>
-    </div>
-    
-    <div>
-        <p id="affichageTempsTravail"></p>
-        <p id="affichageTempsPause"></p>
-
-        <button onclick="augmenterMinute()">+</button>
-        <input type="number" id="choixMinute" placeholder="Minute" value="25" disabled/>
-        <button onclick="diminuerMinute()">-</button>
+<body class="fond">
+    <div class="text-center">
+        <header>
+            <h1>TIMER POMODORO</h1>   
+        </header>
+        <main>
+            <div class="container">
+                <p class="texte" id="affichageTravailPause"></p>
+                <div class="cercle">
+                    <p class="temps" id="affichageTemps"></p>
+                </div>
+                <button class="controle" id="boutonControle" onclick="lancer()">Lancer</button>
+            </div>
         
-        <button onclick="augmenterSeconde()">+</button>
-        <input type="number" id="choixSeconde" placeholder="Seconde" value="0" disabled/>
-        <button onclick="diminuerSeconde()">-</button> 
+            <div class="container">
+                <div class="container">
+                    <p class="texte" id="affichageTempsTravail"></p>
+                    <p class="texte" id="affichageTempsPause"></p>
+                </div>
+                <div class="container">
+                    <button class="controle2" onclick="augmenterMinute()">+</button>
+                    <input class="input" type="number" id="choixMinute" placeholder="Minute" value="25" disabled/>
+                    <button class="controle2" onclick="diminuerMinute()">-</button>
 
-        <button onclick="changerTravail()" >Changer le temps de travail</button>
-        <button onclick="changerPause()">Changer le temps de pause</button>
+                    <button class="controle2" onclick="augmenterSeconde()">+</button>
+                    <input class="input" type="number" id="choixSeconde" placeholder="Seconde" value="0" disabled/>
+                    <button class="controle2" onclick="diminuerSeconde()">-</button> 
+                </div>
+                <div class="container">
+                    <button class="controle" onclick="changerTravail()" >Changer le temps de travail</button>
+                    <button class="controle" onclick="changerPause()">Changer le temps de pause</button>
+                </div>
+            </div>
+        </main>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
