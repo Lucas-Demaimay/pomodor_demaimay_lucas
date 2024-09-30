@@ -17,17 +17,15 @@
             <h1 class="titre">TIMER POMODORO</h1>   
         </header>
         <main>
-            <div class="container">
-                <table class="tableau" id="affichageTravailPause">
-                    <td id="cellulePause" class="inactif">Pause</td>
-                    <td id="celluleTravail" class="inactif">Travail</td>
-                </table>
-                <div class="cercle">
-                    <span class="align-text-bottom">
-                        <p class="temps" id="affichageTemps"></p>
-                    </span>
+            <div class="container ">
+                <div class="row">
+                    <p class="inactif col align-self-start" id="cellulePause">Pause</p>
+                    <p class="inactif col align-self-end" id="celluleTravail">Travail</p>
                 </div>
-                <button class="controle" id="boutonControle" onclick="lancer()">Lancer</button>
+                <div class="cercle d-flex align-items-center justify-content-center">
+                    <p class="temps" id="affichageTemps"></p>
+                </div>
+                <button class="controle " id="boutonControle" onclick="lancer()">Lancer</button>
             </div>
         
             <div class="container">

@@ -84,6 +84,7 @@ const minuteur = {
 
                 affichageEstTravail.classList.remove('actif')
                 affichageEstTravail.classList.add('inactif')
+                
             } else {
                 affichageEstPause.classList.remove('actif')
                 affichageEstPause.classList.add('inactif')

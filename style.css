@@ -53,23 +53,51 @@ body {
     margin-bottom: 5%;
 }
 
-.tableau {
-    margin: auto;
-    padding: auto;
-    width: 100%;
-}
-
 .inactif {
     font-size: 3vw;
-    font-weight: 90;
+    font-weight: 10;
+    animation: devenirInactif 1s;
 }
 
+@keyframes devenirInactif {
+    0% {
+        font-weight: 900;
+    }
+    100% {
+        font-weight: 10;
+    }
+  }
+
 .actif {
-    font-size: 3.2vw;
-    font-weight: 500;
-    
+    font-size: 3vw;
+    font-weight: 900;
+    animation: devenirActif 1s;
 }
+
+@keyframes devenirActif {
+    0% {
+        font-weight: 10;
+        font-size: 3vw;
+    }
+    50% {
+        font-size: 4vw;
+    }
+    100% {
+        font-size: 3vw;
+        font-weight: 900;
+    }
+  }
 
 h1 {
     font-size: 8vw;
+    animation: animationTitre 1s;
 }
+
+@keyframes animationTitre {
+    0% {
+        letter-spacing: 1vw;
+    }
+    100% {
+        letter-spacing: auto;
+    }
+  }
