@@ -71,6 +71,11 @@ const minuteur = {
             this.tabTravailRepos[1] = seconde;
         }
 
+        if(!this.estActif) {
+            this.minute = this.tabTravailRepos[0];
+            this.seconde = this.tabTravailRepos[1];
+        }
+
         this.reafficher();
     }
 }
