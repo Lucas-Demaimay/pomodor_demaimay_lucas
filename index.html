@@ -1,8 +1,9 @@
-<!-- metadescription, changer les onclick par des addListener en JS, inspection, bouton imagé, deuxième cercle -->
+<!--  changer les onclick par des addListener en JS, inspection, bouton imagé, deuxième cercle -->
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta name="description" content="Pomodoro">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
@@ -13,16 +14,18 @@
 <body class="fond">
     <div class="text-center">
         <header>
-            <h1>TIMER POMODORO</h1>   
+            <h1 class="titre">TIMER POMODORO</h1>   
         </header>
         <main>
             <div class="container">
                 <table class="tableau" id="affichageTravailPause">
-                    <td id="cellulePause">Pause</td>
-                    <td id="celluleTravail">Travail</td>
+                    <td id="cellulePause" class="inactif">Pause</td>
+                    <td id="celluleTravail" class="inactif">Travail</td>
                 </table>
                 <div class="cercle">
-                    <p class="temps" id="affichageTemps"></p>
+                    <span class="align-text-bottom">
+                        <p class="temps" id="affichageTemps"></p>
+                    </span>
                 </div>
                 <button class="controle" id="boutonControle" onclick="lancer()">Lancer</button>
             </div>

@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+body {
+    
+    font-family: "Dosis", monospace;
+    font-style: normal;
+    
+}
+
 .fond {
     background-color: rgb(220, 37, 0);
     color: white;
@@ -5,7 +14,6 @@
 
 .temps {
     font-size: 5vw;
-    margin-top: 27.5%;
 }
 
 .texte {
@@ -24,6 +32,8 @@
     width: 5%;
     margin-top: 2.5%;
     margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .cercle {
@@ -45,5 +55,21 @@
 
 .tableau {
     margin: auto;
+    padding: auto;
+    width: 100%;
+}
+
+.inactif {
     font-size: 3vw;
+    font-weight: 90;
+}
+
+.actif {
+    font-size: 3.2vw;
+    font-weight: 500;
+    
+}
+
+h1 {
+    font-size: 8vw;
 }

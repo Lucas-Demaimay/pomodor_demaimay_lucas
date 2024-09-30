@@ -1,4 +1,10 @@
 
+/**
+ * Permet de mettre un format minute : seconde standard pour tout le site
+ * @param {*} minute 
+ * @param {*} seconde 
+ * @returns une chaîne de caractère "minute:seconde"
+ */
 function stringTemps( minute, seconde) {
     if(seconde < 10){
         return minute + " : 0" + seconde;
@@ -7,12 +13,17 @@ function stringTemps( minute, seconde) {
     }
 }
 
-let affichageTemps = document.getElementById("affichageTemps");
-let affichageTempsTravail = document.getElementById("affichageTempsTravail");
-let affichageTempsPause = document.getElementById("affichageTempsPause");
+let affichageTemps = document.getElementById("affichageTemps"); // Correspond à l'affichage du minuteur
+let affichageTempsTravail = document.getElementById("affichageTempsTravail"); // Correspond à l'affichage du temps de travail choisi
+let affichageTempsPause = document.getElementById("affichageTempsPause"); // Correspond à l'affichage du temps de pause choisie
+let affichageEstTravail = document.getElementById("celluleTravail"); // Correspond à l'affichage si on est en temps de travail
+let affichageEstPause = document.getElementById("cellulePause"); // Correspond à l'affichage si on est en temps de pause
 
-let controle = document.getElementById("boutonControle");
+let controle = document.getElementById("boutonControle"); // Correspond au bouton permettant de lancer le minuteur
 
+/*
+ * minuteur est un objet représentant le minuteur pomodoro 
+ */
 const minuteur = { 
     minute : 25, 
     seconde : 0,
@@ -20,6 +31,9 @@ const minuteur = {
     estTempsPause: false,
     estActif: false,
 
+    /**
+     * Fait avancer le minuteur d'une seconde et les changements qui en découlent
+     */
     avancer: function() {
         if(!this.estActif) return;
         this.seconde -= 1;
@@ -42,6 +56,9 @@ const minuteur = {
         this.reafficher();
     },
 
+    /**
+     * Réinitialise le minuteur
+     */
     restaurer: function() {
         this.estTempsPause = false;
         this.minute = this.tabTravailRepos[0];
@@ -49,6 +66,9 @@ const minuteur = {
         this.reafficher();
     },
 
+    /**
+     * Réaffiche correctement les minutes et les secondes
+     */
     reafficher: function() {
         
         if(this.estActif) {
@@ -56,12 +76,42 @@ const minuteur = {
         } else {
             affichageTemps.textContent = stringTemps(minuteur.tabTravailRepos[0], minuteur.tabTravailRepos[1]);
         }
+
+        if(this.estActif) {
+            if(this.estTempsPause){
+                affichageEstPause.classList.remove('inactif')
+                affichageEstPause.classList.add('actif')
+
+                affichageEstTravail.classList.remove('actif')
+                affichageEstTravail.classList.add('inactif')
+            } else {
+                affichageEstPause.classList.remove('actif')
+                affichageEstPause.classList.add('inactif')
+
+                affichageEstTravail.classList.remove('inactif')
+                affichageEstTravail.classList.add('actif')
+            }
+            
+        } else {
+            affichageEstPause.classList.remove('actif')
+            affichageEstPause.classList.add('inactif')
+
+            affichageEstTravail.classList.remove('actif')
+            affichageEstTravail.classList.add('inactif')
+        }
         
         affichageTempsTravail.textContent = "Temps de travail : " + stringTemps(minuteur.tabTravailRepos[0], minuteur.tabTravailRepos[1]);
         affichageTempsPause.textContent = "Temps de pause : " + stringTemps(minuteur.tabTravailRepos[2], minuteur.tabTravailRepos[3]);
 
     },
 
+
+    /**
+     * Change les temps de pause et de travail du minuteur
+     * @param {*} minute 
+     * @param {*} seconde 
+     * @param {*} estPause 
+     */
     changerTemps: function(minute, seconde, estPause) {
         if(estPause) {
             this.tabTravailRepos[2] = minute;
@@ -83,14 +133,20 @@ const minuteur = {
 
 minuteur.reafficher();
 
-setInterval(() => minuteur.avancer(), 1000);
+setInterval(() => minuteur.avancer(), 1000); // Appelle avancer de minuteur toutes les secondes
 
+/**
+ * Permet de lancer le minuteur
+ */
 function lancer(){
     minuteur.estActif = true;
     controle.textContent = "Reset";
     controle.onclick = reset;
 }
 
+/**
+ * Réinitialise le minuteur
+ */
 function reset(){
     minuteur.estActif = false;
     minuteur.restaurer();
@@ -98,6 +154,9 @@ function reset(){
     controle.onclick = lancer;
 }
 
+/**
+ * Change le temps de travail
+ */
 function changerTravail(){
     let newMinute = document.getElementById("choixMinute").value;
     let newSeconde = document.getElementById("choixSeconde").value;
@@ -105,6 +164,9 @@ function changerTravail(){
     minuteur.changerTemps(newMinute, newSeconde, false);
 }
 
+/**
+ * Change le temps de pause
+ */
 function changerPause(){
     let newMinute = document.getElementById("choixMinute").value;
     let newSeconde = document.getElementById("choixSeconde").value;
@@ -112,6 +174,9 @@ function changerPause(){
     minuteur.changerTemps(newMinute, newSeconde, true);
 }
 
+/**
+ * Augmente les minutes du temps de travail ou pause
+ */
 function augmenterMinute(){
     let newMinute = document.getElementById("choixMinute").value;
     if(newMinute == 120){
@@ -120,6 +185,9 @@ function augmenterMinute(){
     document.getElementById("choixMinute").value = parseInt(newMinute) + 1;
 }
 
+/**
+ * Diminue les minutes du temps de travail ou pause
+ */
 function diminuerMinute(){
     let newMinute = document.getElementById("choixMinute").value;
     if(newMinute == 1){
@@ -128,6 +196,9 @@ function diminuerMinute(){
     document.getElementById("choixMinute").value = parseInt(newMinute) - 1;
 }
 
+/**
+ * Augmente les secondes du temps de travail ou pause
+ */
 function augmenterSeconde(){
     let newSeconde = document.getElementById("choixSeconde").value;
     if(newSeconde == 59){
@@ -137,6 +208,9 @@ function augmenterSeconde(){
     document.getElementById("choixSeconde").value = parseInt(newSeconde) + 1;
 }
 
+/**
+ * Diminue les secondes du temps de travail ou pause
+ */
 function diminuerSeconde(){
     let newSeconde = document.getElementById("choixSeconde").value;
     if(newSeconde == 0){
