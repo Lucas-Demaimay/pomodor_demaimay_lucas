@@ -24,6 +24,8 @@
     width: 5%;
     margin-top: 2.5%;
     margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .cercle {
@@ -41,4 +43,8 @@
     width: 10%;
     margin-top: 2.5%;
     margin-bottom: 5%;
+}
+
+h1 {
+    font-size: 8vw;
 }

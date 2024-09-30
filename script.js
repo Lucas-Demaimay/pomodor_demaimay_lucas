@@ -1,4 +1,10 @@
 
+/**
+ * 
+ * @param {*} minute 
+ * @param {*} seconde 
+ * @returns return a string "minute:seconde"
+ */
 function stringTemps( minute, seconde) {
     if(seconde < 10){
         return minute + " : 0" + seconde;
@@ -7,12 +13,15 @@ function stringTemps( minute, seconde) {
     }
 }
 
-let affichageTemps = document.getElementById("affichageTemps");
-let affichageTempsTravail = document.getElementById("affichageTempsTravail");
-let affichageTempsPause = document.getElementById("affichageTempsPause");
+let affichageTemps = document.getElementById("affichageTemps"); // Correspond à l'affichage du minuteur
+let affichageTempsTravail = document.getElementById("affichageTempsTravail"); // Correspond à l'affichage du temps de travail choisi
+let affichageTempsPause = document.getElementById("affichageTempsPause"); // Correspond à l'affichage du temps de pause choisie
 
-let controle = document.getElementById("boutonControle");
+let controle = document.getElementById("boutonControle"); // Correspond au bouton permettant de lancer le minuteur
 
+/*
+ * minuteur est un objet représentant le minuteur pomodoro 
+ */
 const minuteur = { 
     minute : 25, 
     seconde : 0,
