@@ -100,6 +100,76 @@ h1 {
         letter-spacing: 1vw;
     }
     100% {
-        letter-spacing: auto;
+        letter-spacing: 0vw;
     }
   }
+
+@media screen and (max-width: 750px) {
+
+    .principal {
+        margin-top: 25vw;
+        transform: scale(1.25);
+        animation: ajuster 1s;
+    }
+    .controle3 {
+        font-size: 3vw;
+        
+    }
+    .controle2 {
+        font-size: 3vw;
+        margin-top: 1%;
+        margin-bottom: 2%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .texte {
+        font-size: 3vw;
+    }
+    .choix {
+        font-size: 3vw;
+    }
+}
+
+@keyframes ajuster {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.25);
+    }
+}
+
+@media screen and (min-width: 750px) {
+
+    .principal {
+        margin-top: 0vw;
+        transform: scale(1);
+        animation: reajuster 1s;
+    }
+    .controle3 {
+        font-size: 2vw;
+        flex: none;
+    }
+    .controle2 {
+        font-size: 2vw;
+        margin-top: 2.5%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .texte {
+        font-size: 2vw;
+    }
+    .choix {
+        font-size: 2vw;
+    }
+}
+
+@keyframes reajuster {
+    0% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
