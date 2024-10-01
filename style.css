@@ -21,19 +21,22 @@ body {
 }
 
 .controle {
-    font-size: 2vw;
-    width: 50%;
+    font-size: 5vw;
     margin-top: 2.5%;
     margin-bottom: 5%;
 }
 
 .controle2 {
     font-size: 2vw;
-    width: 5%;
     margin-top: 2.5%;
     margin-bottom: 5%;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.controle3 {
+    font-size: 2vw;
+    margin-bottom: 5%;
 }
 
 .cercle {

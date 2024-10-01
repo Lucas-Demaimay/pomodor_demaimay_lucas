@@ -141,7 +141,7 @@ setInterval(() => minuteur.avancer(), 1000); // Appelle avancer de minuteur tout
  */
 function lancer(){
     minuteur.estActif = true;
-    controle.textContent = "Reset";
+    controle.innerHTML = "replay";
     controle.onclick = reset;
 }
 
@@ -151,7 +151,7 @@ function lancer(){
 function reset(){
     minuteur.estActif = false;
     minuteur.restaurer();
-    controle.textContent = "Lancer";
+    controle.textContent = "play_arrow";
     controle.onclick = lancer;
 }
 
