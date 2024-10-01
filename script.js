@@ -159,8 +159,8 @@ function reset(){
  * Change le temps de travail
  */
 function changerTravail(){
-    let newMinute = document.getElementById("choixMinute").value;
-    let newSeconde = document.getElementById("choixSeconde").value;
+    let newMinute = document.getElementById("choixMinute").textContent;
+    let newSeconde = document.getElementById("choixSeconde").textContent;
 
     minuteur.changerTemps(newMinute, newSeconde, false);
 }
@@ -169,8 +169,8 @@ function changerTravail(){
  * Change le temps de pause
  */
 function changerPause(){
-    let newMinute = document.getElementById("choixMinute").value;
-    let newSeconde = document.getElementById("choixSeconde").value;
+    let newMinute = document.getElementById("choixMinute").textContent;
+    let newSeconde = document.getElementById("choixSeconde").textContent;
 
     minuteur.changerTemps(newMinute, newSeconde, true);
 }
@@ -179,46 +179,46 @@ function changerPause(){
  * Augmente les minutes du temps de travail ou pause
  */
 function augmenterMinute(){
-    let newMinute = document.getElementById("choixMinute").value;
+    let newMinute = document.getElementById("choixMinute").textContent;
     if(newMinute == 120){
         return;
     }
-    document.getElementById("choixMinute").value = parseInt(newMinute) + 1;
+    document.getElementById("choixMinute").textContent = parseInt(newMinute) + 1;
 }
 
 /**
  * Diminue les minutes du temps de travail ou pause
  */
 function diminuerMinute(){
-    let newMinute = document.getElementById("choixMinute").value;
+    let newMinute = document.getElementById("choixMinute").textContent;
     if(newMinute == 1){
         return;
     }
-    document.getElementById("choixMinute").value = parseInt(newMinute) - 1;
+    document.getElementById("choixMinute").textContent = parseInt(newMinute) - 1;
 }
 
 /**
  * Augmente les secondes du temps de travail ou pause
  */
 function augmenterSeconde(){
-    let newSeconde = document.getElementById("choixSeconde").value;
+    let newSeconde = document.getElementById("choixSeconde").textContent;
     if(newSeconde == 59){
-        document.getElementById("choixSeconde").value = 0;
+        document.getElementById("choixSeconde").textContent = 0;
         return;
     }
-    document.getElementById("choixSeconde").value = parseInt(newSeconde) + 1;
+    document.getElementById("choixSeconde").textContent = parseInt(newSeconde) + 1;
 }
 
 /**
  * Diminue les secondes du temps de travail ou pause
  */
 function diminuerSeconde(){
-    let newSeconde = document.getElementById("choixSeconde").value;
+    let newSeconde = document.getElementById("choixSeconde").textContent;
     if(newSeconde == 0){
-        document.getElementById("choixSeconde").value = 59;
+        document.getElementById("choixSeconde").textContent = 59;
         return;
     }
-    document.getElementById("choixSeconde").value = parseInt(newSeconde) - 1;
+    document.getElementById("choixSeconde").textContent = parseInt(newSeconde) - 1;
 }
 
 
