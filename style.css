@@ -7,25 +7,30 @@ body {
     
 }
 
+/* Couleur de fond de la page web */
 .fond {
     background-color: rgb(220, 37, 0);
     color: white;
 }
 
+/* Classe du minuteur */
 .temps {
     font-size: 5vw;
 }
 
+/* Classe des différents affichages textuels */
 .texte {
     font-size: 2vw;
 }
 
+/* Classe du bouton qui controle le minuteur */
 .controle {
     font-size: 5vw;
     margin-top: 2.5%;
     margin-bottom: 5%;
 }
 
+/* Classe des boutons qui controlent le choix du temps (+ ou -) */
 .controle2 {
     font-size: 2vw;
     margin-top: 2.5%;
@@ -34,11 +39,13 @@ body {
     margin-right: 5%;
 }
 
+/* Classe des boutons qui permettent de choisir de changer le temps de travail ou de pause */
 .controle3 {
     font-size: 2vw;
     margin-bottom: 5%;
 }
 
+/* Classe permettant de créer le cercle */
 .cercle {
     border: solid;
     border-color: gold;
@@ -49,12 +56,14 @@ body {
     margin: auto;
 }
 
+/* Classe permettant d'afficher le choix du temps (entre les boutons + et -) */
 .choix {
     font-size: 2vw;
     margin-top: 2.5%;
     margin-bottom: 5%;
 }
 
+/* Classe permettant que la phase (travail ou pause) n'est pas en cours */
 .inactif {
     font-size: 3vw;
     font-weight: 10;
@@ -70,6 +79,7 @@ body {
     }
   }
 
+/* Classe permettant que la phase (travail ou pause) est en cours */
 .actif {
     font-size: 3vw;
     font-weight: 900;
@@ -104,6 +114,7 @@ h1 {
     }
   }
 
+/* Permet d'agrandir les textes et le site en général si l'écran est trop réduit ou que l'on réduit la fenêtre */
 @media screen and (max-width: 750px) {
 
     .principal {
@@ -139,6 +150,8 @@ h1 {
     }
 }
 
+
+/* Permet de remettre à la taille normal si on réagrandit la fenêtre */
 @media screen and (min-width: 750px) {
 
     .principal {

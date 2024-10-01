@@ -67,7 +67,7 @@ const minuteur = {
     },
 
     /**
-     * Réaffiche correctement les minutes et les secondes
+     * Réaffiche correctement les minutes et les secondes partout sur la page web
      */
     reafficher: function() {
         

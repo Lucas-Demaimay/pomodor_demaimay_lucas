@@ -1,5 +1,3 @@
-<!--  changer les onclick par des addListener en JS, inspection, bouton imagé, deuxième cercle -->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,28 +12,43 @@
 </head>
 <body class="fond">
     <div class="text-center principal">
+    <!-- Titre de la page web -->
         <header>
             <h1 class="titre">TIMER POMODORO</h1>   
         </header>
+    <!-- Corps de la page web -->
         <main>
+            
+            <!-- Partie minuteur de la page web (fonctionalités V1) -->
             <div class="container ">
+                
+                <!-- Indicateur travail ou pause -->
                 <div class="row">
                     <p class="inactif col align-self-start" id="cellulePause">Pause</p>
                     <p class="inactif col align-self-end" id="celluleTravail">Travail</p>
                 </div>
+                
+                <!-- Minuteur -->
                 <div class="cercle d-flex align-items-center justify-content-center">
                     <p class="temps" id="affichageTemps"></p>
                 </div>
+                
+                <!-- Bouton lancer et réinitialiser -->
                 <span  class="material-symbols-outlined btn btn-dark controle" id="boutonControle" onclick="lancer()">
                     play_arrow
                 </span>
             </div>
-        
+
+            <!-- Partie choix des temps de travail et de pause de la page web (fonctionalités V2) -->
             <div class="container">
+
+                <!-- Affichage des temps de travail et de pause -->
                 <div class="container">
                     <p class="texte" id="affichageTempsTravail"></p>
                     <p class="texte" id="affichageTempsPause"></p>
                 </div>
+
+                <!-- Saisie du temps choisi -->
                 <div class="container">
                     <span class="material-symbols-outlined controle2 btn btn-danger" onclick="augmenterMinute()">
                         add
@@ -53,6 +66,8 @@
                         remove
                     </span>
                 </div>
+
+                <!-- Choix entre appliqué le temps choisi pour le travail ou la pause -->
                 <div class="container">
                     <button class="btn btn-dark controle3" onclick="changerTravail()" >Changer le temps de travail</button>
                     <button class="btn btn-dark controle3" onclick="changerPause()">Changer le temps de pause</button>
